@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBAccessException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -58,9 +59,18 @@ public class ListarPostsMB {
 
 	public String remover() {
 		String id = obterParametroPorNome("id");
-		postServiceLocal.remover(Long.valueOf(id));
-		adicionarMensagem("Post removido com sucesso");
+		try {
+			postServiceLocal.remover(Long.valueOf(id));
+			adicionarMensagem("Post removido com sucesso");
+			
+		} catch (EJBAccessException e) {
+		
+		} catch (NumberFormatException e) {
+			
+		}
 		return listar();
+		
+		
 	}
 
 	public String salvar() {

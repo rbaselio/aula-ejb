@@ -42,7 +42,7 @@
 						<f:param name="id" value="#{post.id}" />
 					</h:commandButton>        
 					
-					<h:commandButton id="btnExcluir"  value="Excluir" action="#{listarPostsMB.remover}" >
+					<h:commandButton id="btnExcluir"  value="Excluir" action="#{listarPostsMB.remover}" rendered="#{request.isUserInRole('administrador')}">
 						<f:param name="titulo" value="#{post.titulo}" />
 						<f:param name="id" value="#{post.id}" />
 					</h:commandButton>    					

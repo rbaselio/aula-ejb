@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<display-name>blog2</display-name>
-	
+
 	<welcome-file-list>
 		<welcome-file>faces/index.xhtml</welcome-file>
 	</welcome-file-list>
@@ -18,5 +18,32 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
-	
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login/login.html</form-login-page>
+			<form-error-page>/login/error_login.html</form-error-page>
+		</form-login-config>
+	</login-config>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Recursos do Adminstrador</web-resource-name>
+			<url-pattern>/faces/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>administrador</role-name>
+			<role-name>usuario</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<security-role>
+		<role-name>administrador</role-name>
+	</security-role>
+	<security-role>
+		<role-name>usuario</role-name>
+	</security-role>
+
+
 </web-app>

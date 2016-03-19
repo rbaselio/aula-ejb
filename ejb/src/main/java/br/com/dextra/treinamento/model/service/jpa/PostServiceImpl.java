@@ -2,6 +2,8 @@ package br.com.dextra.treinamento.model.service.jpa;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJBAccessException;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
@@ -37,7 +39,8 @@ public class PostServiceImpl implements PostServiceLocal {
 	}
 
 	@Override
-	public void remover(Long id) {
+	@RolesAllowed ("administrador")
+	public void remover(Long id){
 		Post post = em.find(Post.class, id);
 		em.remove(post);
 	}
