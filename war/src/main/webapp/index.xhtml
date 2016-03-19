@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:my="http://java.sun.com/jsf/composite/component">
+    <f:view contentType="text/html"/>
+    <h:head>
+        <title>Blog</title>
+    </h:head>
+    <h:body>
+        <h2>Bem vindo ao blog</h2>
+        
+	        <h3>Exemplo JPA - Blog</h3>
+	        <h:form>
+	        	<h:commandButton value="Ver posts" action="#{listarPostsMB.listar}" />
+	        </h:form>
+	        
+	        <h:form>
+	        	<h3>Exemplo Stateless x Stateful</h3>
+	        	<h:commandButton value="Stateless" action="#{testarSessionBeanMB.testarStateless}" />
+	        	<h:commandButton value="Stateful" action="#{testarSessionBeanMB.testarStateful}" />
+	        </h:form>	        
+
+	        <h:form>
+	        	<h3>Exemplo JMS</h3>
+	        	<h:commandButton value="Queue" action="#{testarJMS.testarQueue}" />
+	        </h:form>
+
+	        <h:form>
+	        	<h3>Exemplo EJBTimer</h3>
+	        	<h:commandButton value="Timer" action="#{testarTimerMB.testarTimer}" />
+	        	<h:commandButton value="Cancelar Timer" action="#{testarTimerMB.cancelarTimer}" />
+	        </h:form>
+	        
+	        <h:form>
+	        	<h3>Incluir post usando WebService</h3>
+	        	<h:messages />
+
+	        	<h:outputLabel for="titulo" value="Titulo:" />
+	        	<h:inputText id="titulo" value="#{testarWebServiceMB.titulo}" />
+
+	        	<h:outputLabel for="descricao" value="Descricao:" />
+	        	<h:inputText id="descricao" value="#{testarWebServiceMB.descricao}" />
+
+	        	<h:commandButton value="Salvar" action="#{testarWebServiceMB.adicionarPostViaWS}" />
+	        </h:form>
+	        
+    </h:body>
+</html>
